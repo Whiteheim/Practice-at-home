@@ -1,7 +1,26 @@
 server.servlet.encoding.force-response: true
+
 spring:
   h2:
     console:
       enabled: true
   jpa:
     defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+# DB URL 고정 설정
+  datasource:
+    generate-unique-name: false
+    url: jdbc:h2:mem:testdb;MODE=MySQL
+# JPA 로깅 설정
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+# 파라미터 출력
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

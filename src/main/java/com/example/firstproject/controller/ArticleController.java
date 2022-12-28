@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,12 +32,12 @@ public class ArticleController {
         log.info(form.toString());
 //        System.out.println(form.toString()); -> logging 기능으로 대체
 
-        // 1. dto 변환
+        // 1. dto -> Entity 변환
         Article article = form.toEntity();
         log.info(article.toString());
 //        System.out.println(article.toString());
 
-        // 2. repository를 통해 db에 저장
+        // 2. repository를 통해 Entity를 db에 저장
         Article saved = articleRepository.save(article);
         log.info(saved.toString());
 //        System.out.println(saved.toString());
@@ -103,6 +104,22 @@ public class ArticleController {
         return "redirect:/articles/" + articleEntity.getId();
     }
 
+    @GetMapping("/articles/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes rttr) {
+        log.info("삭제요청");
 
+        // 1. 삭제 대상 가져오기
+        Article target = articleRepository.findById(id).orElse(null);
+        log.info(target.toString());
+
+        // 2. 대상 삭제
+        if (target != null) {
+            articleRepository.delete(target);
+            rttr.addFlashAttribute("msg", "삭제 완료");
+        }
+
+        // 3. 결과 페이지로 redirect
+        return "redirect:/articles";
+    }
 }
 
