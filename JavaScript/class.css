@@ -1,0 +1,12 @@
+/* 
+ * CSS 관련 구글링
+ * 👉 site:developer.mozilla.org {연관_키워드}
+ */
+ body {
+    font-family: Arial, Helvetica, sans-serif; 
+}
+pre {
+    background-color: #efefef;
+    padding-top: 1rem;
+    margin: 0;
+}
