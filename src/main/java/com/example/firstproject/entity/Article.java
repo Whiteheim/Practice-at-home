@@ -1,10 +1,11 @@
 package com.example.firstproject.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import javax.persistence.*;
 
 @Entity // DB가 인식 가능 (해당 Class를 Table로 만든다)
 @AllArgsConstructor
