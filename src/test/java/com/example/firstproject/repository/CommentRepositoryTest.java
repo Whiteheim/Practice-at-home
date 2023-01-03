@@ -128,7 +128,7 @@ class CommentRepositoryTest {
             // 예상하기
             List<Comment> expected = Arrays.asList();
             // 검증
-            assertEquals(expected.toString(), comments.toString()," null의 모든 댓글 출력");
+            assertEquals(expected, comments," null의 모든 댓글 출력");
         }
         /* Case4: ""의 모든 댓글 조회*/
         {
@@ -139,7 +139,7 @@ class CommentRepositoryTest {
             // 예상하기
             List<Comment> expected = Arrays.asList();
             // 검증
-            assertEquals(expected.toString(), comments.toString(), "''의 모든 댓글 출력");
+            assertEquals(expected, comments, "''의 모든 댓글 출력");
         }
 
         /* Case5: "i"의 모든 댓글 조회*/

@@ -14,9 +14,7 @@
                     *
                 FROM
                     comment
-                WHERE
-                    nickname
-                    LIKE :nickname
+                WHERE nickname Like :nickname
             ]]>
         </query>
     </named-native-query>
