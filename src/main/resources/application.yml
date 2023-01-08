@@ -6,13 +6,23 @@ spring:
       enabled: true
   jpa:
     defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
-# DB URL 고정 설정
+  # DB URL 고정 설정
   datasource:
     generate-unique-name: false
-    url: jdbc:h2:mem:testdb;MODE=MySQL
+    #url: jdbc:h2:mem:testdb;MODE=MySQL
+    url: jdbc:mysql://localhost:3306/first_db
+    username: heim
+    password: dkehqlwm
+  sql:
+    init:
+      mode: never
+      data-locations: classpath:/data.sql
+
 # JPA 로깅 설정
 logging:
   level:
@@ -24,3 +34,5 @@ logging:
           descriptor:
             sql:
               BasicBinder: TRACE
+
+# Mysql 연동

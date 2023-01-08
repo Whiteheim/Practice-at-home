@@ -24,6 +24,8 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	implementation 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// Mysql 드라이버 추가
+	implementation 'mysql:mysql-connector-java'
 }
 
 tasks.named('test') {
