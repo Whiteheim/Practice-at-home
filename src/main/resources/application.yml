@@ -14,14 +14,14 @@ spring:
   # DB URL 고정 설정
   datasource:
     generate-unique-name: false
-    #url: jdbc:h2:mem:testdb;MODE=MySQL
-    url: jdbc:mysql://localhost:3306/first_db
-    username: heim
-    password: dkehqlwm
-  sql:
-    init:
-      mode: never
-      data-locations: classpath:/data.sql
+    url: jdbc:h2:mem:testdb;MODE=MySQL
+    #url: jdbc:mysql://localhost:3306/first_db
+#    username: heim
+#    password: dkehqlwm
+#  sql:
+#    init:
+#      mode: never
+#      data-locations: classpath:/data.sql
 
 # JPA 로깅 설정
 logging:
@@ -34,5 +34,3 @@ logging:
           descriptor:
             sql:
               BasicBinder: TRACE
-
-# Mysql 연동
